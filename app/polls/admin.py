@@ -15,13 +15,26 @@ from .models import Question, Choice
 #         ('Date Information', {'fields': ['pub_date']}),
 #     ]
 
-
 # 필드 접어서보기(date information 에만 설정했음
+# class QuestionAdmin(admin.ModelAdmin):
+#     fieldsets = [
+#                 ('Question Statement', {'fields': ['question_text']}),
+#                 ('Date Information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+#             ]
+
+
+# Question 및 Choice 를 한 화면에서 변경하는법
+class ChoiceInline(admin.StackedInline):
+    model = Choice
+    extra = 4
+
+
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
-                ('Question Statement', {'fields': ['question_text']}),
-                ('Date Information', {'fields': ['pub_date'], 'classes': ['collapse']}),
-            ]
+                    (None, {'fields': ['question_text']}),
+                    ('Date Information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+                ]
+    inlines = [ChoiceInline]    # Choice 모델 클래스 같이 보기
 
 
 
