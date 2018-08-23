@@ -31,10 +31,11 @@ from .models import Question, Choice
 # TabularInline 테이블형식으로 보여주기
 class ChoiceInline(admin.TabularInline):
     model = Choice
-    extra = 4
+    extra = 2
 
 
 class QuestionAdmin(admin.ModelAdmin):
+    #     fields = ['pub_date', 'question_text']    # 필드 순서 변경
     fieldsets = [
                     (None, {'fields': ['question_text']}),
                     ('Date Information', {'fields': ['pub_date'], 'classes': ['collapse']}),
