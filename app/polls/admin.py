@@ -24,7 +24,12 @@ from .models import Question, Choice
 
 
 # Question 및 Choice 를 한 화면에서 변경하는법
-class ChoiceInline(admin.StackedInline):
+# class ChoiceInline(admin.StackedInline):
+#     model = Choice
+#     extra = 4
+
+# TabularInline 테이블형식으로 보여주기
+class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 4
 
