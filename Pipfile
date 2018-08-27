@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+ipython = "*"
 
 [dev-packages]
+django-extensions = "*"
 
 [requires]
 python_version = "3.6"
