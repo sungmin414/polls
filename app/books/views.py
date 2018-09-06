@@ -39,3 +39,4 @@ class AuthorDetail(DetailView):
 
 class PublisherDetail(DetailView):
     model = Publisher
+    
